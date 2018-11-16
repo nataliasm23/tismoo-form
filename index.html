@@ -1,9 +1,1337 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Teste</title>
-</head>
-<body>
-Teste
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+		<link rel="stylesheet" href="build/conversational-form-docs.min.css">
+
+		<script type="text/javascript" src="https://cf-4053.kxcdn.com/conversational-form/0.9.6/conversational-form.min.js" crossorigin></script>
+	</head>
+	<body>
+		<script src="build/conversational-form-examples.min.js" id="examples-script"></script>
+
+		<style>
+			cf-chat-response:first-of-type text{
+				background: #0facf3 !important;
+				color: ;
+				font-size: 100%;
+			}
+		</style>
+
+		<main class="content">
+			<menu id="small-screen-menu">
+				<h2>Apresentação</h2>
+
+				<div class="switch-btn">
+					<label class="switch">
+						<input type="checkbox" onclick="window.conversationalFormExamples.toggleConversation(event)">
+						<div class="slider round"></div>
+					</label>
+				</div>
+
+
+			</menu>
+
+			<div class="switch-btn" id="cf-toggle-btn" data-label="Enable Conversational Form" data-label-toggled="Disable Conversational Form">
+				<label class="switch">
+					<input type="checkbox" onclick="window.conversationalFormExamples.toggleConversation(event)">
+					<div class="slider round"></div>
+				</label>
+			</div>
+
+			<section id="info" role="info">
+				<div class="close-btn" onclick="window.conversationalFormExamples.toggleMenuState()">
+					<svg viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+							<g transform="translate(-328.000000, -83.000000)" stroke="#FFFFFF" stroke-width="2">
+								<g id="close" transform="translate(329.000000, 84.000000)">
+									<path d="M19.6371966,19.2779351 L1.08132646,0.722064927"></path>
+									<path d="M19.4923318,0.722064927 L0.936461672,19.2779351"></path>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+
+				<article>
+					<h1 id="writer">
+						TISMOO
+					</h1>
+					<h2>
+						Bem vindos
+					</h2>
+				</article>
+			</section>
+
+<form id="form" cf-form>
+        <fieldset>
+        <label for="radio">
+        <input cf-questions="Olá, que bom que você veio até nós! Eu estou aqui para te ajudar a obter mais informação e te conectar a mais pessoas, empresas e instituições envolvidas com o tema autismo e síndromes relacionadas. Você vai ver como isso tudo pode ser simples. Já são milhares de pessoas que se conectam a nossa rede, então não se preocupe. É seguro.
+        " cf-label="Sim, vamos começar!" type="radio" value="0">
+
+        <label>
+        <fieldset>
+
+        <input type="text" id="firstname" cf-questions="Antes de começarmos, como posso te chamar? :)" />
+        <input type="text" id="firstname" cf-questions="Prazer {firstname}! Então, a primeira coisa a fazer é identificar o seu perfil para lhe entregar um conteúdo melhor. Para isso, vou fazer algumas perguntas básicas, ok?" />
+
+<!--CHECAR A IDADE-->
+            <fieldset cf-questions="Qual seu sexo?">
+
+
+            <input type="radio"
+                   name="intro"
+                   id="fem"
+                   value="feminino">
+            <label for="fem">Feminino</label>
+
+
+            <input type="radio"
+                   name="intro"
+                   id="masc"
+                   value="masculino">
+            <label for="masc">Masculino</label>
+            </fieldset>
+
+<!--idade-->
+
+        <fieldset cf-questions="Qual sua idade?">
+
+
+            <input type="text"
+                   name="idade"
+                   id="age"
+                   value="">
+
+
+<!--VERIFICAR A IDADE COMO INT  E CLASSIFICAR COM IF-->
+
+            <!--<input-->
+            <!--type="text"-->
+            <!--name="idade"-->
+            <!--id="idd"-->
+            <!--cf-questions="Infelizmente para se cadastrar você precisa ter mais de 13 anos, me desculpe. Volte mais tarde,beeeeem mais tarde. ;-)"-->
+            <!--cf-conditional-idade="<>            >-->
+
+            <!--<input-->
+            <!--type="text"-->
+            <!--name="idade"-->
+
+            <!--cf-questions="Coisa boa, na flor da idade! Podemos continuar?"-->
+            <!--cf-conditional-cfc-intro=" 13<value<40" >-->
+
+            <!--<input-->
+
+            <!--name="idade"-->
+            <!--type="text"-->
+            <!--cf-questions="Legal! Podemos continuar?"-->
+            <!--cf-conditional-cfc-intro="if value>40">-->
+
+
+        <!--</fieldset>-->
+
+                   <!--COMEÇO DA CONDICIONAIS-->
+
+        <fieldset
+                cf-questions="Qual é sua relação com autismo ou síndromes relacionadas?">
+
+
+        <input type="radio"
+               name="cfc-rel"
+               id="Ra"
+               value="tenho_sindrome">
+
+        <label for="Ra"> Tenho uma síndrome relacionada ao autismo</label>
+
+
+        <input  type="radio"
+                name="cfc-rel"
+                id="Rb"
+                value="tenho_familiar"
+                >
+        <label for="Rb"> Tenho uma pessoa com autismo na minha família</label>
+
+
+        <input  type="radio"
+                name="cfc-rel"
+                id="Rc"
+                value="sou_autista"
+                >
+        <label for="Rc">Sou autista</label>
+
+
+        <input type="radio"
+               name="cfc-rel"
+               id="Rd"
+               value="trabalho_com"
+               >
+        <label for="Rd">Trabalho atendendo pessoas com autismo</label>
+
+
+        <input type="radio"
+               name="cfc-rel"
+               id="Re"
+               value="estudo_com"
+               >
+        <label for="Re">Estudo o autismo e/ou síndromes relacionadas </label>
+
+        </fieldset>
+<!--RE"x" significa RELAÇÃO EXATAMENETE X  1/5-->
+
+
+        <fieldset
+        cf-questions="Interessante! Qual síndrome exatamente,você sabe?"
+        >
+
+        <input type="radio"
+               name="cfc-rel-exa"
+               id="REa"
+               value="Asperger"
+               cf-conditional-cfc-rel="tenho_sindrome"
+
+        />
+        <label for="REa"> Asperger </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa"
+               id="REb"
+               value="Mc Phelan"
+               cf-conditional-cfc-rel="tenho_sindrome"
+               />
+>
+        <label for="REb"> Mc Phelan </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa"
+               id="REc"
+               value="X Frágil"
+               cf-conditional-cfc-rel="tenho_sindrome"
+               />
+
+">
+        <label for="REc">X Frágil</label>
+
+        <input type="radio"
+               name="cfc-rel-exa"
+               id="REd"
+               value="Rett"
+               cf-conditional-cfc-rel="tenho_sindrome"
+               >
+        <label for="REd">Rett </label>
+
+        <input type="radio"
+               name="cfc-rel-exa"
+               id="REe"
+               value="Outra"
+               cf-conditional-cfc-rel="tenho_sindrome"
+             >
+        <label for="REe">Outra.Qual?</label>
+
+        </fieldset>
+
+
+<fieldset
+        cf-questions="Interessante! E já há um diagnóstico de um médico?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag"
+               id="Raas"
+               value="Sim"
+               cf-conditional-cfc-rel-exa ="Asperger||Mc Phelan||X Frágil||Rett||Outra||Filho||Neto||Outro"> <!-- here we do the mapping -->>
+        <label for="Raas"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag"
+               id="Rbbn"
+               value="Não"
+               cf-conditional-cfc-rel-exa ="Asperger||Mc Phelan||X Frágil||Rett||Outra||Filho||Neto||Outro">
+         <label for="Rbbn"> Nao </label>
+</fieldset>
+
+<fieldset
+        cf-questions="Entendo... <br/>Me diz uma coisa, já foi iniciado algum tratamento?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-trat"
+               id="Raast"
+               value="Sim"
+               cf-conditional-cfc-rel-exa-diag="Sim||Não">
+        <label for="Raast"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-trat"
+               id="Rbbnt"
+               value="Não"
+               cf-conditional-cfc-rel-exa-diag="Sim||Não">
+        <label for="Rbbnt"> Nao </label>
+
+
+</fieldset>
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="final"
+
+    cf-conditional-cfc-rel-exa-diag-trat="Não||Sim"
+
+
+</fieldset>
+
+
+
+
+<!--condicional RPc significa Relação de parentesco 2/5  -->
+    <fieldset
+        cf-questions="Qual sua relação de parentesco?">
+
+        <input type="radio"
+        name="cfc-rel-parent"
+        id="RPa"
+        value="Filho"
+        cf-conditional-cfc-rel="tenho_familiar"/>
+        <label for="RPa"> Filho(a)</label>
+
+        <input type="radio"
+        name="cfc-rel-parent"
+        id="RPb"
+        value="Neto"
+        cf-conditional-cfc-rel="tenho_familiar"
+      />
+        <label for="RPb"> Neto(a)</label>
+
+        <input type="radio"
+        name="cfc-rel-parent"
+        id="RPc"
+        value="Outro"
+        cf-conditional-cfc-rel="tenho_familiar"/>
+        <label for="RPc"> Outro(a). Qual?</label>
+
+</fieldset>
+
+<fieldset
+        cf-questions="Entendi. Mas é autismo ou outra síndrome relacionada?">
+
+        <input type="radio"
+        name="cfc-rel-parent-exa"
+        id="RPaS"
+        value="OutraSindrome"
+        cf-conditional-cfc-rel-parent="Filho||Neto||Outro"/>
+        <label for="RPaS"> Outra síndrome </label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa"
+        id="RPbS"
+        value="Autismo"
+        cf-conditional-cfc-rel-parent="Filho||Neto||Outro"/>
+        <label for="RPbS"> Autismo </label>
+
+
+</fieldset>
+            <fieldset
+        cf-questions="Interessante! Qual síndrome exatamente,você sabe?">        >
+
+        <input type="radio"
+               name="cfc-rel-exa-os"
+               id="REaOS"
+               value="Asperger"
+               cf-conditional-cfc-rel-parent-exa="OutraSindrome"
+        />
+        <label for="REaOS"> Asperger </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-os"
+               id="REbOS"
+               value="Mc Phelan"
+               cf-conditional-cfc-rel-parent-exa="OutraSindrome"
+               />
+>
+        <label for="REbOS"> Mc Phelan </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-os"
+               id="REcOS"
+               value="X Frágil"
+               cf-conditional-cfc-rel-parent-exa="OutraSindrome"
+               />
+
+>
+        <label for="REcOS">X Frágil</label>
+
+        <input type="radio"
+               name="cfc-rel-exa-os"
+               id="REdOS"
+               value="Rett"
+               cf-conditional-cfc-rel-parent-exa="OutraSindrome"
+               >
+        <label for="REdOS">Rett </label>
+
+        <input type="radio"
+               name="cfc-rel-exa-os"
+               id="REeOS"
+               value="Outra"
+               cf-conditional-cfc-rel-parent-exa="OutraSindrome"
+             >
+        <label for="REeos">Outra.Qual?</label>
+
+        </fieldset>
+
+<fieldset
+        cf-questions="Interessante! Sabe qual tipode autismo?">
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut"
+        id="TA1"
+        value="NaoSei"
+        cf-conditional-cfc-rel-parent-exa="Autismo"
+        />
+        <label for="TA1">Não sei ainda qual tipo exatamente</label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut"
+        id="TA2"
+        value="Autismo de alto funcionamento"
+        cf-conditional-cfc-rel-parent-exa="Autismo"
+        >
+        <label for="TA2"> Autismo de alto funcionamento </label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut"
+        id="TA3"
+        value="Outro"
+        cf-conditional-cfc-rel-parent-exa="Autismo"
+       >
+        <label for="TA3"> Outro. Qual? </label>
+</fieldset>
+
+
+<fieldset
+        cf-questions="Qual especificamente?">
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut-FUNC"
+        id="E1"
+        value="ESPECIFICO ASPERGER"
+        cf-conditional-cfc-rel-parent-exa-aut="Autismo de alto funcionamento"
+        >
+        <label for="E1"> Asperger </label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut-FUNC"
+        id="E2"
+        value="ESPECIFICO SAVANT"
+        cf-conditional-cfc-rel-parent-exa-aut="Autismo de alto funcionamento"
+        >
+        <label for="E2"> Savant </label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut-FUNC"
+        id="E3"
+        value="ESPECIFICO Sem outra especificação"
+        cf-conditional-cfc-rel-parent-exa-aut="Autismo de alto funcionamento"
+        >
+        <label for="E3"> Sem outra especificação </label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut-FUNC"
+        id="E4"
+        value="ESPECIFICO classico"
+        cf-conditional-cfc-rel-parent-exa-aut="Autismo de alto funcionamento"
+        >
+        <label for="E4"> Clássico </label>
+
+        <input type="radio"
+        name="cfc-rel-parent-exa-aut-FUNC"
+        id="E5"
+        value="ESPECIFICO Moderado"
+        cf-conditional-cfc-rel-parent-exa-aut="Autismo de alto funcionamento"
+        >
+        <label for="E5"> Moderado </label>
+
+<fieldset
+        cf-questions="Interessante! E já há um diagnóstico de um médico?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-fam"
+               id="RaasFA"
+               value="Sim"
+               cf-conditional-cfc-rel-parent-exa-aut-FUNC ="ESPECIFICO ASPERGER||ESPECIFICO SAVANT||ESPECIFICO Sem outra especificação||ESPECIFICO classico||ESPECIFICO Moderado"> <!-- here we do the mapping -->>
+        <label for="RaasFA"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-fam"
+               id="RbbnFB"
+               value="Não"
+               cf-conditional-cfc-rel-parent-exa-aut-FUNC ="ESPECIFICO ASPERGER||ESPECIFICO SAVANT||ESPECIFICO Sem outra especificação||ESPECIFICO classico||ESPECIFICO Moderado">
+         <label for="RbbnFB"> Nao </label>
+</fieldset>
+
+<fieldset
+        cf-questions="Entendo... <br/>Me diz uma coisa, já foi iniciado algum tratamento?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-fam-trat-final"
+               id="RaastPFA"
+               value="Sim"
+               cf-conditional-cfc-rel-exa-diag-fam="Sim||Não">
+        <label for="RaastPFA"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-fam-trat-final"
+               id="RbbntFB"
+               value="Não"
+               cf-conditional-cfc-rel-exa-diag-parent-fam="Sim||Não">
+        <label for="RbbntFB"> Nao </label>
+
+
+</fieldset>
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="final"
+
+
+    cf-conditional-cfc-rel-exa-diag-fam-trat-final="Não||Sim"
+
+
+</fieldset>
+
+<fieldset
+        cf-questions="Interessante! E já há um diagnóstico de um médico?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent"
+               id="RaasF"
+               value="Sim"
+               cf-conditional-cfc-rel-exa-os ="Asperger||Mc Phelan||X Frágil||Rett||Outra||Filho||Neto||Outro"> <!-- here we do the mapping -->>
+        <label for="RaasF"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent"
+               id="RbbnF"
+               value="Não"
+               cf-conditional-cfc-rel-exa-os ="Asperger||Mc Phelan||X Frágil||Rett||Outra||Filho||Neto||Outro">
+         <label for="RbbnF"> Nao </label>
+</fieldset>
+
+<fieldset
+        cf-questions="Entendo... <br/>Me diz uma coisa, já foi iniciado algum tratamento?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent-trat-final"
+               id="RaastP"
+               value="Sim"
+               cf-conditional-cfc-rel-exa-diag-parent="Sim||Não">
+        <label for="RaastP"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent-trat-final"
+               id="Rbbnt"
+               value="Não"
+               cf-conditional-cfc-rel-exa-diag-parent-trat="Sim||Não">
+        <label for="Rbbnt"> Nao </label>
+
+
+</fieldset>
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="final"
+
+    cf-conditional-cfc-rel-exa-diag-parent-trat-final="Não||Sim"
+
+
+</fieldset>
+
+<!--condicional "SOU AUTISTA" 3/5  -->
+
+  <fieldset
+        cf-questions="Interessante! Sabe qual tipo de autismo">
+
+        <input type="radio"
+        name="tipo-autismo"
+        id="A1"
+        value="NaoSei"
+        cf-conditional-cfc-rel="sou_autista"
+        />
+        <label for="A1">Não sei ainda qual tipo exatamente</label>
+
+        <input type="radio"
+        name="tipo-autismo"
+        id="A2"
+        value="Autismo de alto funcionamento"
+        cf-conditional-cfc-rel="sou_autista"
+        >
+        <label for="A2"> Autismo de alto funcionamento </label>
+
+        <input type="radio"
+        name="tipo-autismo"
+        id="A3"
+        value="Outro"
+        cf-conditional-cfc-rel="sou_autista"
+       >
+        <label for="A3"> Outro. Qual? </label>
+</fieldset>
+
+
+    <fieldset
+        cf-questions="Interessante! E já há um diagnóstico de um médico?">
+
+        <input type="radio"
+        name="diag"
+        id="W1"
+        value="Sim"
+        cf-conditional-tipo-autismo="Outro||NaoSei"
+        >
+        <label for="W1"> Sim </label>
+
+        <input type="radio"
+        name="diag"
+        id="W2"
+        value="nao"
+        cf-conditional-tipo-autismo="Outro||NaoSei"
+        >
+        <label for="W2"> Não </label>
+
+
+</fieldset>
+
+
+    <fieldset
+        cf-questions="Entendo... <br/>Me diz uma coisa, já foi iniciado algum tratamento?">
+
+        <input type="radio"
+               name="tratame"
+               id="r1"
+               value="Sim"
+               cf-conditional-diag="Sim||Não">
+        <label for="r1"> Sim </label>
+
+
+        <input type="radio"
+               name="tratame"
+               id="r2"
+               value="Não"
+               cf-conditional-diag="Sim||Não">
+        <label for="r2"> Nao </label>
+
+
+</fieldset>
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="final1"
+
+    cf-conditional-tratame="Não||Sim"
+
+<!--_______________________FINAL NAO SEI AINDA QUE TIPO DE AUTISMO E OUTRO_______E -->
+
+ <!--_____COMEÇO DO QUAL ESPECIFICAMENTE_______   -->
+    <fieldset
+        cf-questions="Qual especificamente?">
+
+        <input type="radio"
+        name="especifica"
+        id="Q1"
+        value="ASPERGER"
+        cf-conditional-tipo-autismo="Autismo de alto funcionamento"
+        >
+        <label for="Q1"> Asperger </label>
+
+        <input type="radio"
+        name="especifica"
+        id="Q2"
+        value="SAVANT"
+        cf-conditional-tipo-autismo="Autismo de alto funcionamento"
+        >
+        <label for="Q2"> Savant </label>
+
+        <input type="radio"
+        name="especifica"
+        id="Q3"
+        value="Sem outra especificação"
+        cf-conditional-tipo-autismo="Autismo de alto funcionamento"
+        >
+        <label for="Q3"> Sem outra especificação </label>
+
+        <input type="radio"
+        name="especifica"
+        id="Q4"
+        value="classico"
+        cf-conditional-tipo-autismo="Autismo de alto funcionamento"
+        >
+        <label for="Q4"> Clássico </label>
+
+        <input type="radio"
+        name="especifica"
+        id="Q5"
+        value="Moderado"
+        cf-conditional-tipo-autismo="Autismo de alto funcionamento"
+        >
+        <label for="Q5"> Moderado </label>
+
+<fieldset
+        cf-questions="Interessante! E já há um diagnóstico de um médico?">
+
+        <input type="radio"
+               name="diagnostico"
+               id="D1"
+               value="Sim"
+               cf-conditional-especifica ="ASPERGER||SAVANT||Sem outra especificação||classico||Moderado"> <!-- here we do the mapping -->>
+        <label for="D1"> Sim </label>
+
+
+        <input type="radio"
+               name="diagnostico"
+               id="D2"
+               value="Não"
+               cf-conditional-especifica ="ASPERGER||SAVANT||Sem outra especificação||classico||Moderado">
+         <label for="D2"> Nao </label>
+</fieldset>
+
+<fieldset
+        cf-questions="Entendo... <br/>Me diz uma coisa, já foi iniciado algum tratamento?">
+
+        <input type="radio"
+               name="tratamento"
+               id="T1"
+               value="Sim"
+               cf-conditional-diagnostico="Sim||Não">
+        <label for="T1"> Sim </label>
+
+
+        <input type="radio"
+               name="tratamento"
+               id="T2"
+               value="Não"
+               cf-conditional-diagnostico="Sim||Não">
+        <label for="T2"> Nao </label>
+
+
+</fieldset>
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="final"
+
+    cf-conditional-tratamento="Não||Sim"
+
+
+</fieldset>
+        <!--_____________FINAL DO QUAL ESPECIFICCAMENTE____-->
+
+<!--CONDICINAL TRABALHO ATENDENDO PESSOAS COM AUTISMO 4/5-->
+
+
+     <fieldset
+        cf-questions="Interessante! Sabe qual tipo de autismo">
+
+        <input type="radio"
+        name="tipo-autismo"
+        id="A1"
+        value="NaoSei"
+        cf-conditional-cfc-rel="sou_autista"
+        />
+        <label for="A1">Não sei ainda qual tipo exatamente</label>
+
+        <input type="radio"
+        name="tipo-autismo"
+        id="A2"
+        value="Autismo de alto funcionamento"
+        cf-conditional-cfc-rel="sou_autista"
+        >
+        <label for="A2"> Autismo de alto funcionamento </label>
+
+        <input type="radio"
+        name="tipo-autismo"
+        id="A3"
+        value="Outro"
+        cf-conditional-cfc-rel="sou_autista"
+       >
+        <label for="A3"> Outro. Qual? </label>
+</fieldset>
+
+
+<fieldset
+        cf-questions="Trabalha em qual área?">
+
+        <input type="radio"
+        name="area"
+        id="area1"
+        value="Edu"
+        cf-conditional-cfc-rel="trabalho_com"
+        >
+        <label for="area1"> Educação </label>
+
+        <input type="radio"
+        name="area"
+        id="area2"
+        value="Sau"
+        cf-conditional-cfc-rel="trabalho_com"
+        >
+        <label for="area2"> Saúde </label>
+
+
+
+<fieldset
+        cf-questions="Educação,muito bom! Qual profissão exatamente?">
+
+        <input type="radio"
+               name="profissao"
+               id="P1"
+               value="ped"
+               cf-conditional-area ="Edu"> <!-- here we do the mapping -->>
+        <label for="P1"> Pedagogia </label>
+
+
+         <input type="radio"
+               name="profissao"
+               id="P2"
+               value="psi"
+               cf-conditional-area ="Edu"> <!-- here we do the mapping -->>
+        <label for="P2"> Psicopedagoia </label>
+
+        <input type="radio"
+               name="profissao"
+               id="P3"
+               value="EdFísica"
+               cf-conditional-area ="Edu"> <!-- here we do the mapping -->>
+        <label for="P3"> Ed. Física </label>
+
+        <input type="radio"
+               name="profissao"
+               id="P4"
+               value="Outro"
+               cf-conditional-area ="Edu"> <!-- here we do the mapping -->>
+        <label for="P4"> Outro.Qual? </label>
+
+</fieldset>
+
+
+    <fieldset
+        cf-questions="Saúde, muito legal! Qual profissão exatamente?">
+
+        <input type="radio"
+               name="profi"
+               id="S1"
+               value="med"
+               cf-conditional-area ="Sau"> <!-- here we do the mapping -->>
+        <label for="S1"> Medicina </label>
+
+
+         <input type="radio"
+               name="profi"
+               id="S2"
+               value="psicolo"
+               cf-conditional-area ="Sau"> <!-- here we do the mapping -->>
+        <label for="S2"> Psicologia </label>
+
+        <input type="radio"
+               name="profi"
+               id="S3"
+               value="fono"
+               cf-conditional-area ="Sau"> <!-- here we do the mapping -->>
+        <label for="S3"> Fono </label>
+
+        <input type="radio"
+               name="profi"
+               id="S4"
+               value="outr"
+               cf-conditional-area ="Sau"> <!-- here we do the mapping -->>
+        <label for="S4"> Outro.Qual? </label>
+
+</fieldset>
+
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="fim"
+
+    cf-conditional-profissao="ped||psi||EdFísica||Outro||med||psicolo||fono||outr"
+
+
+</fieldset>
+
+    <fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="fim"
+
+    cf-conditional-profi="med||psicolo||fono||outr"
+
+
+</fieldset>
+    <!--FINAL DA CONDICIONAL 4/5-->
+
+    <!--CONTINUAÇÃO DA CONDICIONAL 3/5-->
+<fieldset
+        cf-questions="Interessante! E já há um diagnóstico de um médico?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent"
+               id="RaasF"
+               value="Sim"
+               cf-conditional-cfc-rel-exa-os ="Asperger||Mc Phelan||X Frágil||Rett||Outra||Filho||Neto||Outro"> <!-- here we do the mapping -->>
+        <label for="RaasF"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent"
+               id="RbbnF"
+               value="Não"
+               cf-conditional-cfc-rel-exa-os ="Asperger||Mc Phelan||X Frágil||Rett||Outra||Filho||Neto||Outro">
+         <label for="RbbnF"> Nao </label>
+</fieldset>
+
+<fieldset
+        cf-questions="Entendo... <br/>Me diz uma coisa, já foi iniciado algum tratamento?">
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent-trat-final"
+               id="RaastP"
+               value="Sim"
+               cf-conditional-cfc-rel-exa-diag-parent="Sim||Não">
+        <label for="RaastP"> Sim </label>
+
+
+        <input type="radio"
+               name="cfc-rel-exa-diag-parent-trat-final"
+               id="Rbbnt"
+               value="Não"
+               cf-conditional-cfc-rel-exa-diag-parent-trat="Sim||Não">
+        <label for="Rbbnt"> Nao </label>
+
+
+</fieldset>
+
+
+<fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="final"
+
+
+    cf-conditional-cfc-rel-exa-diag-parent-trat-final="Não||Sim"
+
+
+</fieldset>
+
+<!--final da condicional 3/5-->
+
+    <!--COMEÇO DA CONDICIONAL 5/5-->
+
+    <fieldset
+        cf-questions="Estuda como exatamente?">
+
+        <input type="radio"
+        name="estudo"
+        id="est1"
+        value=grad
+        cf-conditional-cfc-rel="estudo_com"
+        />
+        <label for="est1">Faço graduação</label>
+
+        <input type="radio"
+        name="estudo"
+        id="est2"
+        value=posgrad
+        cf-conditional-cfc-rel="estudo_com"
+        />
+        <label for="est2">Faço Pós-graduação</label>
+
+        <input type="radio"
+        name="estudo"
+        id="cient"
+        value=cientista
+        cf-conditional-cfc-rel="estudo_com"
+        />
+        <label for="cient">Sou cientista</label>
+</fieldset>
+
+<fieldset
+        cf-questions="Em qual área??">
+
+        <input type="radio"
+        name="estudo-area"
+        id="estudo1"
+        value=gradedu
+        cf-conditional-estudo="grad"
+        />
+        <label for="estudo1">Meu curso é na área de Educação</label>
+
+        <input type="radio"
+        name="estudo-area"
+        id="estudo2"
+        value=gradsau
+        cf-conditional-estudo="grad"
+        />
+        <label for="estudo1">Meu curso é na área de Saúde</label>
+ </fieldset>
+
+    <fieldset
+        cf-questions="O quê?">
+
+        <input type="radio"
+        name="estudo-oq"
+        id="pos1"
+        value=mest
+        cf-conditional-estudo="posgrad"
+        />
+        <label for="pos1">Mestrado</label>
+
+        <input type="radio"
+        name="estudo-oq"
+        id="pos2"
+        value=dout
+        cf-conditional-estudo="posgrad"
+        />
+        <label for="pos2">Doutorado</label>
+
+        <input type="radio"
+        name="estudo-oq"
+        id="pos3"
+        value=posdout
+        cf-conditional-estudo="posgrad"
+        />
+        <label for="pos3">Pós Doc</label>
+ </fieldset>
+
+    <!--COMEÇO DA CONDICIONAL OQ MESTRADOTRA DOUTORADO-->
+        <fieldset
+        cf-questions="Em qual área?">
+
+        <input type="radio"
+        name="est-exa"
+        id="ex1"
+        value="educ"
+        cf-conditional-estudo-oq="mest||dout||posdout"
+        />
+        <label for="ex1">Meu curso é na área de Educação</label>
+
+        <input type="radio"
+        name="est-exa"
+        id="ex2"
+        value="saud"
+        cf-conditional-estudo-oq="mest||dout||posdout"
+        />
+        <label for="ex2">Meu curso é na área de Saúde</label>
+
+ </fieldset>
+
+    <fieldset
+        cf-questions="Educação,muito bom! Qual curso exatamente?">
+
+        <input type="radio"
+        name="curso"
+        id="curso1"
+        value=pedag
+        cf-conditional-est-exa="educ"
+        />
+        <label for="curso1">Pedagogia</label>
+
+        <input type="radio"
+        name="curso"
+        id="curso2"
+        value=psicoped
+        cf-conditional-est-exa="educ"
+        />
+        <label for="curso2">Psicopedagoia</label>
+
+        <input type="radio"
+        name="curso"
+        id="curso3"
+        value=efs
+        cf-conditional-est-exa="educ"
+        />
+        <label for="curso3">Ed. Física</label
+
+         <input type="radio"
+        name="curso"
+        id="curso4"
+        value=oto
+        cf-conditional-est-exa="educ"
+        />
+        <label for="curso4">Outro.Qual?</label
+ </fieldset>
+ </fieldset>
+
+    <fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="frra"
+
+
+    cf-conditional-curso="psicoped||pedag||efs||oto"
+
+
+</fieldset>
+
+        <fieldset
+        cf-questions="Saúde, muito legal! Qual curso exatamente?">
+
+        <input type="radio"
+        name="sauexa"
+        id="sa1"
+        value="medici"
+        cf-conditional-est-exa="saud"
+        />
+        <label for="sa1">Medicina</label>
+
+        <input type="radio"
+        name="sauexa"
+        id="sa2"
+        value="psicolo"
+        cf-conditional-est-exa="saud"
+        />
+        <label for="sa2">Psicologia</label>
+
+        <input type="radio"
+        name="sauexa"
+        id="sa3"
+        value="fon"
+        cf-conditional-est-exa="saud"
+        />
+        <label for="sa3">Fono</label>
+
+        <input type="radio"
+        name="sauexa"
+        id="sa4"
+        value="outroq"
+        cf-conditional-est-exa="saud"
+        />
+        <label for="sa3">Outro.Qual?</label>l>
+ </fieldset>
+
+
+    <fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="f2"
+
+
+    cf-conditional-sauexa="psicolo||medici||fon||outroq"
+
+
+</fieldset>
+<!--FINAL DA CONDICIONAL OQ MESTRADOTRA DOUTORADO-->
+    <fieldset
+        cf-questions="Educação,muito bom! Qual curso exatamente?">
+
+        <input type="radio"
+        name="estudo-exa"
+        id="exa1"
+        value=peda
+        cf-conditional-estudo-area="gradedu"
+        />
+        <label for="exa1">Pedagogia</label>
+
+        <input type="radio"
+        name="estudo-exa"
+        id="exa2"
+        value="psicop"
+        cf-conditional-estudo-area="gradedu"
+        />
+        <label for="exa2">Psicopedagogia</label>
+
+        <input type="radio"
+        name="estudo-exa"
+        id="exa3"
+        value="edfisica"
+        cf-conditional-estudo-area="gradedu"
+        />
+        <label for="exa3">Ed. Física</label>
+
+        <input type="radio"
+        name="estudo-exa"
+        id="exa4"
+        value="outro"
+        cf-conditional-estudo-area="gradedu"
+        />
+        <label for="exa4">Outro.Qual?</label>
+ </fieldset>
+
+    <fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="f"
+
+
+    cf-conditional-estudo-exa="psicop||peda||edfisica||outro"
+
+
+</fieldset>
+ <fieldset
+        cf-questions="Saúde, muito legal! Qual curso exatamente?">
+
+        <input type="radio"
+        name="sau_exa"
+        id="sau1"
+        value="medi"
+        cf-conditional-estudo-area="gradsau"
+        />
+        <label for="sau1">Pedagogia</label>
+
+        <input type="radio"
+        name="sau_exa"
+        id="sau2"
+        value="psicop"
+        cf-conditional-estudo-area="gradsau"
+        />
+        <label for="sau2">Psicopedagoia</label>
+
+        <input type="radio"
+        name="sau_exa"
+        id="sau3"
+        value="edfisica"
+        cf-conditional-estudo-area="gradsau"
+        />
+        <label for="sau3">Ed. Física</label>
+
+        <input type="radio"
+        name="sau_exa"
+        id="sau4"
+        value="outro"
+        cf-conditional-estudo-area="gradsau"
+        />
+        <label for="sau4">Outro.Qual?</label>
+ </fieldset>
+
+
+    <fieldset cf-questions="Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses. Bem-vindo!">
+
+    <input
+    type="text"
+    id="f"
+
+    cf-conditional-sau_exa="psicop||peda||edfisica||outro"
+
+
+</fieldset>
+
+
+    <fieldset
+        cf-questions="Trabalha no setor público ou privado?">
+
+        <input type="radio"
+        name="trab_area"
+        id="trab1"
+        value=pub
+        cf-conditional-estudo="cientista"
+        />
+        <label for="trab1">Público</label>
+
+         <input type="radio"
+        name="trab_area"
+        id="trab2"
+        value=pri
+        cf-conditional-estudo="cientista"
+        />
+        <label for="trab2">Privado</label>
+ </fieldset>
+
+
+
+
+  <fieldset>
+
+        <input type="text"
+               id="instituicao"
+               name="inst"
+               cf-questions="Em qual instituição?"
+               cf-conditional-trab_area="pub"/>
+
+        <!--<input type="text"-->
+               <!--name="inst"-->
+               <!--id="instituicao"-->
+              <!---->
+               <!--cf-questions="Trabalho na {firstname}!"-->
+                <!--cf-conditional-trab_area="pub"/>-->
+ </fieldset>
+
+
+  <fieldset>
+
+        <input type="text"
+               id="empresa"
+               name="emp"
+
+               cf-questions="Em qual empresa?"
+               cf-conditional-trab_area="pri"/>
+
+        <!--<input type="text"-->
+               <!--id="empresa"-->
+               <!--name="emp"-->
+               <!---->
+               <!--cf-questions="Trabalho na {firstname}!"-->
+                <!--cf-conditional-trab_area="pri"/>-->
+ </fieldset>
+<!--CONTUNIARR AQUIIIIIIIIIIIIIIIIIII 13/11-->
+
+
+
+<fieldset cf-questions="Legal! Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses de estudo. Bem-vindo(a)!">
+
+    <input
+    type="text"
+
+    cf-conditional-emp=>
+
+
+</fieldset>
+
+    <fieldset cf-questions="Legal! Adorei nosso papo. Agora que te conheço melhor, espero poder lhe entregar um conteúdo de qualidade para suas necessidades e interesses de estudo. Bem-vindo(a)!"
+
+    <input
+    type="text"
+
+    cf-conditional-inst="">
+
+
+</fieldset>
+
+
+
+					</form>
+
+				</div>
+			</section>
+
+			<section id="cf-context" role="cf-context" cf-context>
+				
+			</section>
+		</main>
+	</body>
 </html>
